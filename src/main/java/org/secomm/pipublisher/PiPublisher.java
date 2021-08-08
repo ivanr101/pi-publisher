@@ -17,7 +17,6 @@ public class PiPublisher implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         publisher.publish();
     }
 }

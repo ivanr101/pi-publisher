@@ -1,28 +1,15 @@
 package org.secomm.pipublisher.webhook;
 
+import lombok.Data;
+
+@Data
 public class Thumbnail {
 
     private String url;
 
-    public Thumbnail() {
-    }
+    private String proxy_url;
 
-    public Thumbnail(String url) {
-        this.url = url;
-    }
+    private int height;
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    @Override
-    public String toString() {
-        return "Thumbnail{" +
-                "url='" + url + '\'' +
-                '}';
-    }
+    private int width;
 }

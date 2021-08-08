@@ -19,36 +19,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@Scope("prototype")
-@PropertySource("classpath:content.properties")
 public class DiscordNotifier {
 
     private static final Logger log = LoggerFactory.getLogger(DiscordNotifier.class);
 
-    @Value("${webhook.username}")
-    private String username;
-
-    @Value("${webhook.avatar_url}")
-    private String avatarUrl;
-
     private final Gson gson;
-
-    private String webHook;
 
     public DiscordNotifier() {
 
         gson = new GsonBuilder().create();
     }
 
-    public void sendWebhook(String title, String content, List<Embed> embeds) {
+    public void sendWebhook(WebhookContent webhookContent, String webhook) {
 
-        WebhookContent webhookContent = new WebhookContent(username, avatarUrl, "", new ArrayList<>());
         try {
-            webhookContent.setContent(content);
-            webhookContent.setEmbeds(embeds);
             String json = gson.toJson(webhookContent);
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(new URI(webHook))
+                    .uri(new URI(webhook))
                     .POST(HttpRequest.BodyPublishers.ofString(json))
                     .header("Content-Type", "application/json")
                     .build();
@@ -60,9 +47,5 @@ public class DiscordNotifier {
             log.error("Exception in discord webhook notifier: {}", e.getLocalizedMessage());
         }
 
-    }
-
-    public void setWebHook(String webHook) {
-        this.webHook = webHook;
     }
 }

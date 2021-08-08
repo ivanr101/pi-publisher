@@ -1,103 +1,35 @@
 package org.secomm.pipublisher.webhook;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class Embed {
-
-    private Author author;
 
     private String title;
 
-    private String url;
+    private String type;
 
     private String description;
 
+    private String url;
+
+    private String timestamp;
+
     private int color;
 
-    private List<Field> fields;
-
-    private Thumbnail thumbnail;
+    private Footer footer;
 
     private Image image;
 
-    public Embed() {
-    }
+    private Thumbnail thumbnail;
 
-    public Author getAuthor() {
-        return author;
-    }
+    private Video video;
 
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
+    private Provider provider;
 
-    public String getTitle() {
-        return title;
-    }
+    private Author author;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getColor() {
-        return color;
-    }
-
-    public void setColor(int color) {
-        this.color = color;
-    }
-
-    public List<Field> getFields() {
-        return fields;
-    }
-
-    public void setFields(List<Field> fields) {
-        this.fields = fields;
-    }
-
-    public Thumbnail getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(Thumbnail thumbnail) {
-        this.thumbnail = thumbnail;
-    }
-
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
-    @Override
-    public String toString() {
-        return "Embed{" +
-                "author=" + author +
-                ", title='" + title + '\'' +
-                ", url='" + url + '\'' +
-                ", description='" + description + '\'' +
-                ", color=" + color +
-                ", fields=" + fields +
-                ", thumbnail=" + thumbnail +
-                ", image=" + image +
-                '}';
-    }
+    private List<Field> fields;
 }

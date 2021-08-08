@@ -1,49 +1,17 @@
 package org.secomm.pipublisher.webhook;
 
+import lombok.Data;
+import lombok.NonNull;
+
+@Data
 public class Author {
 
+    @NonNull
     private String name;
 
     private String url;
 
     private String icon_url;
 
-    public Author(String name, String url, String icon_url) {
-        this.name = name;
-        this.url = url;
-        this.icon_url = icon_url;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getIcon_url() {
-        return icon_url;
-    }
-
-    public void setIcon_url(String icon_url) {
-        this.icon_url = icon_url;
-    }
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                ", icon_url='" + icon_url + '\'' +
-                '}';
-    }
+    private String proxy_icon_url;
 }

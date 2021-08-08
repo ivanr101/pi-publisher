@@ -1,66 +1,27 @@
 package org.secomm.pipublisher.webhook;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class WebhookContent {
+
+    protected String content;
 
     private String username;
 
     private String avatar_url;
 
-    private String content;
+    private boolean tts;
+
+    private String file;
 
     private List<Embed> embeds;
 
-    public WebhookContent() {
-    }
+    private String json_payload;
 
-    public WebhookContent(String username, String avatar_url, String content, List<Embed> embeds) {
-        this.username = username;
-        this.avatar_url = avatar_url;
-        this.content = content;
-        this.embeds = embeds;
-    }
+    private AllowedMention allowed_mentions;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getAvatar_url() {
-        return avatar_url;
-    }
-
-    public void setAvatar_url(String avatar_url) {
-        this.avatar_url = avatar_url;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public List<Embed> getEmbeds() {
-        return embeds;
-    }
-
-    public void setEmbeds(List<Embed> embeds) {
-        this.embeds = embeds;
-    }
-
-    @Override
-    public String toString() {
-        return "WebhookContent{" +
-                "username='" + username + '\'' +
-                ", avatar_url='" + avatar_url + '\'' +
-                ", content='" + content + '\'' +
-                ", embeds=" + embeds +
-                '}';
-    }
+    private List<MessageComponent> message_components;
 }
